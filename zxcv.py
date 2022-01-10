@@ -1,11 +1,23 @@
 import webbrowser
 
-indexlist = []
+indexlist = ["FirstIndex"]
 securelist = []
 passcord = 1234
 zxcvversion = "0.1.0"
 commandlist = [
-    "exit", "showindex", "showcommand", "sumcalc", "addword", "clearall", "removeword", "entersecure", "say", "chatbot", "zxcv --version", "openwebsite", "getindexnumber"
+    "exit",
+    "showindex",
+    "showcommand",
+    "sumcalc",
+    "addword",
+    "clearall",
+    "removeword",
+    "entersecure",
+    "say", "chatbot",
+    "zxcv --version",
+    "openwebsite",
+    "getindexnumber",
+    "showreplaylist"
 ]
 chatbotlist = [
     "hello", "hi!",
@@ -37,16 +49,7 @@ def commandAction():
         elif word == "addword":
             addword()
         elif word == "removeword":
-            removeword = input('Enter: ')
-            if removeword in indexlist:
-                clearqu = input('Y/n: ')
-                if clearqu == "Y":
-                    indexlist.remove(removeword)
-                    print("Success!")
-                else:
-                    print("OK")
-            else:
-                print(removeword, 'is not in index')
+            removeword()
         elif word == "clearall":
             print("Do you want to clear all?")
             clearqu = input('Y/n: ')
@@ -65,6 +68,8 @@ def commandAction():
             print(zxcvversion)
         elif word == "openwebsite":
             openwebsite()
+        elif word == "showreplaylist":
+            print(chatbotlist)
         elif word == "getindexnumber":
             getindexnumber()
 
@@ -85,6 +90,19 @@ def addword():
     else:
         indexlist.append(addword)
         print(addword, "is added")
+
+def removeword():
+    removeword = input('Enter: ')
+    if removeword in indexlist:
+        print("Do you want to remove", removeword, "?")
+        clearqu = input('Y/n: ')
+        if clearqu == "Y":
+            indexlist.remove(removeword)
+            print("Success!")
+        else:
+            print("Stopped remove")
+    else:
+        print(removeword, 'is not in index')
 
 def securearea():
     securemessage = "None"
