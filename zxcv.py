@@ -17,7 +17,8 @@ commandlist = [
     "zxcv --version",
     "openwebsite",
     "getindexnumber",
-    "showreplaylist"
+    "showreplaylist",
+    "addreplay"
 ]
 chatbotlist = [
     "hello", "hi!",
@@ -72,6 +73,8 @@ def commandAction():
             print(chatbotlist)
         elif word == "getindexnumber":
             getindexnumber()
+        elif word == "addreplay":
+            addreplay()
 
         else:
             print("Don't know this command")
@@ -182,6 +185,21 @@ def getindexnumber():
         print(indexlist.index(getword))
     else:
         print(getword,"is not added to index")
+
+def addreplay():
+    sendmessage = input("Send Message: ").lower()
+    replaymessage = input("Replay Message: ").lower()
+    if sendmessage in chatbotlist:
+        print(sendmessage, "is already added")
+    elif replaymessage in chatbotlist:
+        print(sendmessage, "is already added")
+    else:
+        chatbotlist.append(sendmessage)
+        chatbotlist.append(replaymessage)
+        print("Success!")
+
+
+
 
 
 try:
