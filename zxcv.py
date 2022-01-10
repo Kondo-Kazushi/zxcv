@@ -2,7 +2,7 @@ import webbrowser
 
 indexlist = ["FirstIndex"]
 securelist = []
-passcord = 1234
+passcord1 = 1234
 zxcvversion = "0.1.0"
 commandlist = [
     "exit",
@@ -111,7 +111,7 @@ def securearea():
     securemessage = "None"
     passok = input("Passcord: ")
     passok = int(passok)
-    if passok == passcord:
+    if passok == passcord1:
         print("You are Admin")
         while True:
             secureword = input('Secure: ')
@@ -152,16 +152,6 @@ def openwebsite():
     url = input("EnterURL: ")
     webbrowser.open(url)
 
-def changepasscord():
-    nowpasscord = input("Current Passcord: ")
-    nowpasscord = int(nowpasscord)
-    if nowpasscord == passcord:
-        newpasscord = input("New Passcord: ")
-        newpasscord2 = input("Confirm")
-    else:
-        print("Current Passcord is incorrect")
-
-
 def chatbot():
     print("Welcome to chat bot!")
     while True:
@@ -181,7 +171,6 @@ def getindexnumber():
     print(indexlist)
     getword = input('Word: ')
     if getword in indexlist:
-        print(indexlist.index(getword))
         print(indexlist.index(getword))
     else:
         print(getword,"is not added to index")
