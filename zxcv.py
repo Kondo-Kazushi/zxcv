@@ -2,7 +2,7 @@ indexlist = []
 securelist = []
 passcord = 1234
 commandlist = [
-    "exit", "showindex", "showcommand", "sumcalc", "addword", "clearall", "removeword", "entersecure"
+    "exit", "showindex", "showcommand", "sumcalc", "addword", "clearall", "removeword", "entersecure", "say"
     ]
 
 def wordAction():
@@ -33,7 +33,7 @@ def commandAction():
         elif word == "addword":
             addword = input("Enter: ")
             indexlist.append(addword)
-            print(word, 'is available')
+            print(addword, 'is available')
         elif word == "removeword":
             removeword = input('Enter: ')
             if removeword in indexlist:
@@ -55,6 +55,9 @@ def commandAction():
                 print("OK")
         elif word == "entersecure":
             securearea()
+        elif word == "say":
+            say()
+
         else:
             print("I don't know this command")
         
@@ -68,6 +71,22 @@ def securearea():
     else:
         print("Incorrect")
 
+def say():
+    word2 = input('Say Word: ')
+    print("Do you know what to happen?")
+    surequ = input('Y/n: ')
+    if surequ == "Y":
+        count = 0
+        try:
+            while True:
+                print(count, word2)
+                count+=1
+                print(count)
+                print(count)
+        except KeyboardInterrupt:
+            print('Exit')
+    else:
+        print("OK")
 
 
 
