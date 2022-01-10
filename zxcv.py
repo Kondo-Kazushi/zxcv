@@ -155,15 +155,15 @@ def openwebsite():
 def chatbot():
     print("Welcome to chat bot!")
     while True:
-        talk = input('Enter message: ')
+        talk = input('Your message: ')
         talk = talk.lower()
         if talk == "exit":
             break
         elif talk in chatbotlist:
             replay1 = chatbotlist.index(talk)+1
-            print(chatbotlist[replay1])
+            print("Bot message:",chatbotlist[replay1])
         else:
-            print("すみません よくわかりません")
+            print("Bot message: すみません よくわかりません")
 
 
 def getindexnumber():
