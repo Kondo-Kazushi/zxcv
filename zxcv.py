@@ -7,7 +7,10 @@ zxcvversion = "0.1.0"
 commandlist = [
     "exit", "showindex", "showcommand", "sumcalc", "addword", "clearall", "removeword", "entersecure", "say", "chatbot", "zxcv --version", "openwebsite", "getindexnumber"
 ]
-chatbotlist = ["hello", "hi!"]
+chatbotlist = [
+    "hello", "hi!",
+    "hey siri", "What????????"
+]
 
 def wordAction():
     if word in indexlist:
@@ -142,10 +145,15 @@ def chatbot():
     print("Welcome to chat bot!")
     while True:
         talk = input('Enter message: ')
+        talk = talk.lower()
         if talk == "exit":
             break
+        elif talk in chatbotlist:
+            replay1 = chatbotlist.index(talk)+1
+            print(chatbotlist[replay1])
         else:
             print("すみません よくわかりません")
+
 
 def getindexnumber():
     print("indexlst")
