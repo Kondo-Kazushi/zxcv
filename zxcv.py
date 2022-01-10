@@ -1,9 +1,12 @@
+import webbrowser
+
 indexlist = []
 securelist = []
 passcord = 1234
+zxcvversion = "0.1.0"
 commandlist = [
-    "exit", "showindex", "showcommand", "sumcalc", "addword", "clearall", "removeword", "entersecure", "say"
-    ]
+    "exit", "showindex", "showcommand", "sumcalc", "addword", "clearall", "removeword", "entersecure", "say", "chatbot", "zxcv --version", "openwebsite"
+]
 
 def wordAction():
     if word in indexlist:
@@ -18,6 +21,7 @@ def wordAction():
         else:
             print("OK")
 
+
 def commandAction():
     if word in commandlist:
         if word == "showindex":
@@ -25,11 +29,7 @@ def commandAction():
         elif word == "showcommand":
             print(commandlist)
         elif word == "sumcalc":
-            calcx = input('X: ')
-            calcx = int(calcx)
-            calcy = input('Y: ')
-            calcy = int(calcy)
-            print(calcx+calcy)
+            sumcalc()
         elif word == "addword":
             addword = input("Enter: ")
             indexlist.append(addword)
@@ -57,17 +57,40 @@ def commandAction():
             securearea()
         elif word == "say":
             say()
+        elif word == "chatbot":
+            chatbot()
+        elif word == "zxcv --version":
+            print(zxcvversion)
+        elif word == "openwebsite":
+            openwebsite()
 
         else:
-            print("I don't know this command")
-        
+            print("Don't know this command")
+
+def sumcalc():
+    calcx = input('X: ')
+    calcx = int(calcx)
+    calcy = input('Y: ')
+    calcy = int(calcy)
+    print(calcx+calcy)
+
 def securearea():
+    securemessage = "None"
     passok = input("Passcord: ")
     passok = int(passok)
-
     if passok == passcord:
         print("You are Admin")
-
+        while True:
+            secureword = input('Enter: ')
+            if secureword == "exit":
+                break
+            elif secureword == "addmessage":
+                securemessage = input('Enter: ')
+                print("Success")
+            elif secureword == "showmessage":
+                print(securemessage)
+            
+        
     else:
         print("Incorrect")
 
@@ -80,7 +103,7 @@ def say():
         try:
             while True:
                 print(count, word2)
-                count+=1
+                count += 1
                 print(count)
                 print(count)
         except KeyboardInterrupt:
@@ -88,15 +111,27 @@ def say():
     else:
         print("OK")
 
+def openwebsite():
+    url = input("EnterURL: ")
+    webbrowser.open(url)
+
+
+def chatbot():
+    print("Welcome to chat bot!")
+    while True:
+        talk = input('Enter message: ')
+        if talk == "exit":
+            break
+        else:
+            print("すみません よくわかりません")
 
 
 try:
+    print("Welcome to zxcv")
     while True:
         word = input('Enter:')
-        
-        if word in indexlist:
-            wordAction()
-        elif word == "exit":
+
+        if word == "exit":
             break
         elif word in commandlist:
             commandAction()
