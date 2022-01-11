@@ -24,7 +24,8 @@ commandlist = [
 ]
 chatbotlist = [
     "hello", "hi!",
-    "hey siri", "What????????"
+    "hey siri", "What????????",
+    "ping", "pong"
 ]
 
 def wordAction():
@@ -203,6 +204,14 @@ def wordloop():
         print(count, loopword)
         count += 1
 
+def normalchat():
+    chattext = word.replace('\c', ' ')
+    chattext = chattext.lstrip()
+    if chattext in chatbotlist:
+            replay1 = chatbotlist.index(chattext)+1
+            print("Bot message:",chatbotlist[replay1])
+    else:
+        print("Bot message: すみません よくわかりません")
 
 try:
     print("Welcome to zxcv")
@@ -213,6 +222,8 @@ try:
         else:
             if word == "exit":
                 break
+            elif "\c" in word:
+                normalchat()
             elif word in commandlist:
                 commandAction()
             else:
