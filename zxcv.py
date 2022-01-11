@@ -13,12 +13,14 @@ commandlist = [
     "clearall",
     "removeword",
     "entersecure",
-    "say", "chatbot",
+    "say",
+    "chatbot",
     "zxcv --version",
     "openwebsite",
     "getindexnumber",
     "showreplaylist",
-    "addreplay"
+    "addreplay",
+    "wordloop"
 ]
 chatbotlist = [
     "hello", "hi!",
@@ -75,6 +77,8 @@ def commandAction():
             getindexnumber()
         elif word == "addreplay":
             addreplay()
+        elif word == "wordloop":
+            wordloop()
 
         else:
             print("Don't know this command")
@@ -187,8 +191,17 @@ def addreplay():
         chatbotlist.append(replaymessage)
         print("Success!")
 
-
-
+def wordloop():
+    loopword = input('Loop Word: ')
+    print("How many loops?")
+    loop = input('loop: ')
+    loopx = input('loop2: ')
+    loop = int(loop)
+    loopx = int(loopx)
+    count = 1
+    for i in range(loop*loopx):
+        print(count, loopword)
+        count += 1
 
 
 try:
