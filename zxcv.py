@@ -27,6 +27,7 @@ chatbotlist = [
     "hey siri", "What????????",
     "ping", "pong"
 ]
+securemessage = ""
 
 def wordAction():
     if word in indexlist:
@@ -113,20 +114,28 @@ def removeword():
         print(removeword, 'is not in index')
 
 def securearea():
-    securemessage = "None"
     passok = input("Passcord: ")
     passok = int(passok)
     if passok == passcord1:
-        print("You are Admin")
+        print("Login!")
         while True:
             secureword = input('Secure: ')
             if secureword == "exit":
+                print("Transh and exit!")
                 break
             elif secureword == "addmessage":
                 securemessage = input('EnterMessage: ')
-                print("Success")
+                print("Success!")
             elif secureword == "showmessage":
-                print(securemessage)
+                    print(securemessage)
+            elif secureword == "erasemessage":
+                print("Do you want to erase?")
+                surequ = input('Y/n: ')
+                if surequ == "Y":
+                    securemessage = ""
+                    print("Success!")
+                else:
+                    print("Not erase")
             elif secureword == "":
                 None
             else:
