@@ -118,6 +118,7 @@ def securearea():
     passok = int(passok)
     if passok == passcord1:
         print("Login!")
+        securemessage = "None"
         while True:
             secureword = input('Secure: ')
             if secureword == "exit":
