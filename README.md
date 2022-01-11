@@ -1,5 +1,5 @@
 # zxcv
-xxcv is python utility
+zxcv is python utility
 
 ## 使い方
 Enter mode: indexに入力したwordがあるか確認します ない場合は追加します commandもここで使用します
